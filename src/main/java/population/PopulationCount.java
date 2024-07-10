@@ -8,7 +8,19 @@ public class PopulationCount
     public static Map<String,Integer>city=new HashMap<>();
     public int popCount(String cityName)
     {
-        return PopulationCount.pop(cityName);
+        if(cityName.isEmpty())
+        {
+            throw new NullPointerException("Cant be blank");
+        }
+        else if (!city.containsKey(cityName))
+        {
+            throw new NullPointerException("City does not exist in db");
+        }
+        else
+        {
+            return PopulationCount.pop(cityName);
+        }
+
     }
     public static int pop(String c)
     {

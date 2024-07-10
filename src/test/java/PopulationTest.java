@@ -16,5 +16,21 @@ public class PopulationTest
         assertEquals(count,1000);
     }
 
+    @Test
+    public void pcTest1()
+    {
+        PopulationCount pc=new PopulationCount();
+        String city = "";
+        pc.popCount(city);
+    }
+
+    @Test
+    public void pcTest2()
+    {
+        PopulationCount pc=new PopulationCount();
+        String city = "sfdc";
+        pc.popCount(city);
+    }
+
 
 }
