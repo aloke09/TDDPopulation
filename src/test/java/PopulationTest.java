@@ -11,9 +11,9 @@ public class PopulationTest
     public void pcTest()
     {
         PopulationCount pc=new PopulationCount();
-        String city="kolkata";
+        String city="Kolkata";
         int count = pc.popCount(city);
-        assertEquals(count,100);
+        assertEquals(count,1000);
     }
 
 
