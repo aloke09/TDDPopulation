@@ -3,12 +3,12 @@ import org.junit.jupiter.api.Test;
 import population.PopulationCount;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PopulationTest
 {
-    @Test
-    public void pcTest()
+
+    public static void pcTest()
     {
         PopulationCount pc=new PopulationCount();
         String city="Kolkata";
@@ -17,19 +17,23 @@ public class PopulationTest
     }
 
     @Test
-    public void pcTest1()
+    public void pcTest1()//blank
     {
         PopulationCount pc=new PopulationCount();
         String city = "";
-        pc.popCount(city);
+        Throwable exception = assertThrows(NullPointerException.class,()->pc.popCount(city));
+        assertEquals("Cant be blank",exception.getMessage());
+//        System.out.println(pc.popCount(city));
+
     }
 
     @Test
-    public void pcTest2()
+    public void pcTest2()//key not present
     {
         PopulationCount pc=new PopulationCount();
         String city = "sfdc";
-        pc.popCount(city);
+        Throwable exception = assertThrows(NullPointerException.class,()->pc.popCount(city));
+        assertEquals("City does not exist in db",exception.getMessage());
     }
 
 
